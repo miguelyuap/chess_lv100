@@ -19,7 +19,6 @@ source.include_exts = py,png,jpg,ttf,txt,spec
 version = 1.0.0
 
 # (list) Application requirements
-# comma separated e.g. requirements = sqlite3,kivy
 requirements = python3,pygame-ce,python-chess
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
@@ -38,13 +37,17 @@ android.api = 33
 android.minapi = 21
 
 # (str) Android NDK version to use
-# android.ndk = 25b
+android.ndk = 25b
+
+# (list) Architectures to build for (arm64-v8a es suficiente para dispositivos modernos)
+android.archs = arm64-v8a
 
 # (bool) If true, then skip try to update the android sdk information
-# android.skip_update = False
+android.skip_update = False
 
 # (bool) If true, then accept all the sdk licenses automatically
-# android.accept_sdk_licenses = True
+android.accept_sdk_licenses = True
+
 
 [buildozer]
 
