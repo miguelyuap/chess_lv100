@@ -56,6 +56,10 @@ jobs:
           pip install buildozer "cython<3"
 
       - name: Build Android APK with Buildozer
+        env:
+          # Anular NDK 27 preinstalado en el runner de GitHub
+          ANDROID_NDK_HOME: ""
+          ANDROID_NDK_ROOT: ""
         run: |
           yes | buildozer -s android debug
 
