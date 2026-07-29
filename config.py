@@ -41,18 +41,8 @@ PIECE_UNICODE: dict[str, str] = {
 }
 
 def get_font(size: int, bold: bool = False) -> pygame.font.Font:
-    """Safely retrieves a font compatible across Windows, Linux, Android, and Web."""
-    import pygame
+    """Carga la fuente de sistema de Windows directamente."""
     pygame.font.init()
-    try:
-        font_path = pygame.font.match_font("dejavusans") or pygame.font.match_font("sans")
-        if font_path:
-            f = pygame.font.Font(font_path, size)
-            f.set_bold(bold)
-            return f
-    except Exception:
-        pass
-    f = pygame.font.Font(None, size)
-    f.set_bold(bold)
-    return f
+    # Forzar el uso nativo de Segoe UI Symbol en Windows
+    return pygame.font.SysFont("segoeuisymbol", size, bold=bold)
 
